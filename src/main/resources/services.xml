@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- services -->
+
+    <bean id="service" class="com.huoxin4415.aje.spring.core.ServiceImpl"/>
+
+    <!-- 通过静态工厂方法初始化对象 -->
+    <bean id="serviceByStaticFactory" class="com.huoxin4415.aje.spring.core.ServiceImpl" factory-method="createInstance"/>
+
+    <!-- 通过工厂类初始化对象 -->
+    <bean id="serviceByBean" class="com.huoxin4415.aje.spring.core.ServiceImpl" factory-bean="serviceLocator" factory-method="createInstance"/>
+
+    <bean id="serviceLocator" class="com.huoxin4415.aje.spring.core.DefaultServiceLocator"/>
+
+    <bean id="prototypeService" class="com.huoxin4415.aje.spring.core.ServiceImpl" scope="prototype"/>
+
+    <bean id="user" class="com.huoxin4415.aje.spring.core.User" />
+
+    <bean id="autowireService" class="com.huoxin4415.aje.spring.core.ServiceImpl" autowire="byName"/>
+
+</beans>
