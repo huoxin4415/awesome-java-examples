@@ -32,7 +32,7 @@ public class SimpleStarter {
         // factory.setUri("amqp://userName:password@hostName:portNumber/virtualHost");
 
         Connection conn = factory.newConnection();
-        Channel channel = conn.createChannel();
+        final Channel channel = conn.createChannel();
 
         final String exchangeName = "amq.topic";
         final String routingKey = "topic.test";
